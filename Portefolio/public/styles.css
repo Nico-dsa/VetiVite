@@ -10,7 +10,7 @@ body {
 
 /* Sidebar Styles */
 #sidebar {
-    width: 20%;
+    width: 30%;
     height: 100vh;
     background-color: #000000;
     color: #fff;
@@ -264,14 +264,14 @@ margin-bottom: 10px;
 }
 
 .logo {
-    width: 50px; /* Ou toute autre taille que vous souhaitez */
+    width: 50px;
     height: auto;
-    margin-left: 45%; /* Ajustez l'espace entre le logo et le texte */
+    margin-left: 45%;
 }
 
 .en-tete-profil h3 {
-    display: inline-block; /* Rend les éléments h3 en ligne avec la possibilité d'ajouter des marges */
-    margin-right: 20px; /* Ajoute de l'espace à droite de chaque h3 */
+    display: inline-block; 
+    margin-right: 20px;
   }
   
   .en-tete-profil h3:last-child {
@@ -279,6 +279,6 @@ margin-bottom: 10px;
   }
   
   .en-tete-profil a {
-    text-decoration: none; /* Optionnel: Supprime le soulignement des liens */
-    color: #ffffff; /* Optionnel: Définit une couleur pour les liens */
+    text-decoration: none; 
+    color: #ffffff;
   }

@@ -61,8 +61,8 @@ body {
   
   .retour-button {
     position: absolute; /* Positionnement absolu par rapport au parent relatif */
-    top: 20px; /* Ajustez la valeur pour déplacer vers le haut */
-    left: 20px; /* Ajustez la valeur pour déplacer vers la gauche */
+    top: 20px; 
+    left: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -90,7 +90,7 @@ body {
 }
 
 .logo {
-    width: 50px; /* Ou toute autre taille que vous souhaitez */
+    width: 50px;
     height: auto;
-    margin-right: 10px; /* Ajustez l'espace entre le logo et le texte */
+    margin-right: 10px;
 }
