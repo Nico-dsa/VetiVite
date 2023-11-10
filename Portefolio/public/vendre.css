@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #303030;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .product-container {
+    background-color: #d9cbaf;
+    width: 80%;
+    max-width: 600px; /* Limite la largeur maximale du formulaire */
+    margin: 40px auto; /* Centre le conteneur sur la page */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  select, input[type="text"], input[type="number"], textarea {
+    width: calc(100% - 16px); /* Calcule la largeur en tenant compte du padding */
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* S'assure que padding et border sont inclus dans la largeur */
+  }
+  
+  .submit-button {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 768px) { /* Pour les appareils avec un écran plus petit */
+    .product-container {
+      width: 90%;
+      margin-top: 20px;
+    }
+  }
+  
+  .profile-container {
+    position: relative; /* Ajoutez cette ligne si ce n'est pas déjà le cas */
+  }
+  
+  .retour-button {
+    position: absolute; /* Positionnement absolu par rapport au parent relatif */
+    top: 20px; /* Ajustez la valeur pour déplacer vers le haut */
+    left: 20px; /* Ajustez la valeur pour déplacer vers la gauche */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #FFF;
+    background-color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .retour-button:hover {
+    background-color: #07090a;
+  }
+  
+  .fa-arrow-left {
+    margin-right: 5px;
+  }
+
+  .product-container {
+    display: fix;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Ou toute autre taille que vous souhaitez */
+    height: auto;
+    margin-right: 10px; /* Ajustez l'espace entre le logo et le texte */
+}

@@ -1,0 +1,284 @@
+/* Global Styles */
+body {
+    font-family: cursive;
+    background-color: #303030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    width: 20%;
+    height: 100vh;
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.side {
+    margin-top: 10px;
+}
+
+/* Button Styles */
+.boutons a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    padding-bottom: 5px;
+}
+
+.boutons a::before,
+.boutons a:hover::before,
+.boutons a.active-btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s;
+    width: 0;
+}
+
+.boutons a:hover::before,
+.boutons a.active-btn::before {
+    width: 100%;
+}
+
+/* List Container Styles */
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    max-height: calc(100vh - 160px);
+    margin-top: 20px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+}
+
+.list-container img {
+    height: 150px;
+    margin: 10px;
+    border-radius: 10%;
+    width: auto;
+}
+
+/* Card Styles */
+#card {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    margin-left: 50%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+#card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Icon Styles */
+.icons {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.icons i {
+    padding: 10px;
+    font-size: 50px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.icon.fas.fa-times {
+    margin-left: 25%;
+}
+
+.icon.fas.fa-heart {
+    margin-left: 20%;
+}
+
+/* White Bar Styles */
+.white-bar {
+    width: 100%;
+    background-color: #d9cbaf;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 5%;
+    z-index: 10;
+}
+
+/* Price and Brand Styles */
+.price,
+.brand {
+    position: absolute;
+    bottom: 10px;
+}
+
+.price {
+    font-size: 200%;
+    left: 10px;
+}
+
+.brand {
+    right: 30px;
+}
+
+.white-bar h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.white-bar p {
+    display: inline-block;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Style pour le modal */
+.modal {
+    border-radius: 3%;
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 30%;
+    top: 10%;
+    overflow: auto;
+    justify-content: center;
+    max-width: 100vh;
+    min-height: 80vh;
+}
+
+/* Modal content */
+.modal-content {
+    margin-left: 20%;
+    min-height: 80vh;
+    width: auto;
+    display: flex;
+    background-color: #d9cbaf;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+.modal-content img {
+    border-radius: 5%;
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+.txt-detail {
+    margin-left: 20px;
+}
+
+.txt-detail #detailName {
+    font-size: 50px;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+.txt-detail #detailPrice {
+    font-weight: bold;
+    font-size: 150%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #888;
+}
+
+.txt-detail #detailDescription {
+    padding-bottom: 10px;
+    height: auto;
+    text-transform: capitalize;
+    border-bottom: 1px solid #888;
+}
+
+.txt-detail #detailList {
+    display: flex;
+    border-bottom: 1px solid #888;
+}
+.txt-detail #detailList ul{
+    list-style: none;
+    width: 200px;
+    border-right: 1px solid #888;
+}
+.txt-detail #detailList ul li{
+margin-bottom: 10px;
+}
+
+.txt-detail #addToCartButton,
+.txt-detail #addToWishlistButton {
+    font-size: 150%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #888;
+}
+
+.txt-detail #addToCartButton:hover,
+.txt-detail #addToCartButton:focus,
+.txt-detail #addToWishlistButton:hover,
+.txt-detail #addToWishlisttButton:focus {
+    cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+    color: #000000;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(169, 62, 62);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.en-tete-profil {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Ou toute autre taille que vous souhaitez */
+    height: auto;
+    margin-left: 45%; /* Ajustez l'espace entre le logo et le texte */
+}
+
+.en-tete-profil h3 {
+    display: inline-block; /* Rend les éléments h3 en ligne avec la possibilité d'ajouter des marges */
+    margin-right: 20px; /* Ajoute de l'espace à droite de chaque h3 */
+  }
+  
+  .en-tete-profil h3:last-child {
+    margin-right: 0;
+  }
+  
+  .en-tete-profil a {
+    text-decoration: none; /* Optionnel: Supprime le soulignement des liens */
+    color: #ffffff; /* Optionnel: Définit une couleur pour les liens */
+  }

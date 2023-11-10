@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VétiVite</title>
+    <link rel="icon" href="img/Vetivite.png" type="image/png">
+    <link rel="stylesheet" href="vendre.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+
+<body>
+    <a href="index.html" class="retour-button">
+        <i class="fa fa-arrow-left"></i> Retour
+    </a>
+    <div class="product-container">
+        <h2>Mettre en vente un produit</h2>
+        <img src="img/Vetivite.png" alt="Logo VétiVite" class="logo">
+        <form enctype="multipart/form-data">
+            <label for="product-image">Photo de l'article:</label>
+            <input type="file" id="product-image" name="image" accept="image/*">
+
+            <label for="product-name">Nom du produit:</label>
+            <input type="text" id="product-name" name="product-name">
+
+            <label for="product-brand">Marque du vêtement:</label>
+            <select id="product-brand" name="product-brand">
+                <option value="">Sélectionnez une marque</option>
+                <option value="nike">Nike</option>
+                <option value="adidas">Adidas</option>
+                <option value="puma">Puma</option>
+                <option value="gucci">Gucci</option>
+                <option value="louisvuitton">Louis Vuitton</option>
+                <option value="chanel">Chanel</option>
+                <option value="zara">Zara</option>
+                <option value="h&m">H&M</option>
+                <option value="hermes">Hermès</option>
+                <option value="lacoste">Lacoste</option>
+                <option value="stradivarius">Stradivarius</option>
+                <option value="ralphlauren">Ralph Lauren</option>
+                <option value="tommyhilfiger">Tommy Hilfiger</option>
+                <option value="hugoboss">Hugo Boss</option>
+                <option value="calvinklein">Calvin Klein</option>
+                <option value="fila">Fila</option>
+            </select>
+
+            <label for="product-description">Description:</label>
+            <textarea id="product-description" name="product-description" rows="4"></textarea>
+
+            <label for="product-categorie">Catégorie:</label>
+            <select id="product-categorie" name="product-categorie">
+                <option value="T-shirt">T-shirt</option>
+                <option value="Sweat">Sweat</option>
+                <option value="Manteau">Manteau</option>
+                <option value="Pantalon">Pantalon</option>
+                <option value="Chaussures">Chaussures</option>
+                <option value="Chaussettes">Chaussettes</option>
+                <option value="Chapeau">Chapeau</option>
+            </select>
+
+            <label for="product-size">Taille:</label>
+            <select id="product-size" name="product-size">
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="XXXL">XXXL</option>
+            </select>
+
+            <label for="product-condition">État du vêtement:</label>
+            <select id="product-condition" name="product-condition">
+                <option value="new">Neuf</option>
+                <option value="very-good">Très bon état</option>
+                <option value="good">Bon état</option>
+                <option value="fair">État moyen</option>
+                <option value="worn">Usé</option>
+            </select>
+
+            <label for="product-price">Prix:</label>
+            <input type="number" id="product-price" name="product-price">
+
+            <label for="product-color">Couleur:</label>
+            <select id="product-color" name="product-color">
+                <option value="red">Rouge</option>
+                <option value="blue">Bleu</option>
+                <option value="green">Vert</option>
+                <option value="purple">Violet</option>
+                <option value="pink">Rose</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Jaune</option>
+                <option value="black">Noir</option>
+                <option value="brown">Marron</option>
+                <option value="gray">Gris</option>
+                <option value="white">Blanc</option>
+                <option value="other">Autre</option>
+            </select>
+
+            <button type="submit" class="submit-button">Mettre en vente</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="addarticle.js"></script>
+</body>
+
+</html>

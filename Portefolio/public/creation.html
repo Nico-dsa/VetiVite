@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VétiVite</title>
+    <link rel="icon" href="img/Vetivite.png" type="image/png">
+    <link rel="stylesheet" href="create.css">
+</head>
+
+<body>
+
+    <form action="/process-registration" method="post">
+        <div class="form-group">
+            <label for="sexe">Sexe:</label>
+            <select id="sexe" name="sexe">
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+                <option value="autre">Autre</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Âge:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <textarea id="adresse" name="adresse" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="ville">Ville:</label>
+            <input type="text" id="ville" name="ville" required>
+        </div>
+
+        <div class="form-group">
+            <label for="codePostal">Code postal:</label>
+            <input type="text" id="codePostal" name="codePostal" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pays">Pays:</label>
+            <input type="text" id="pays" name="pays" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" name="mail" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <input type="submit" value="Créer le compte">
+    </form>
+
+</body>
+
+</html>

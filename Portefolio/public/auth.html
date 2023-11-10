@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VétiVite</title>
+    <link rel="icon" href="img/Vetivite.png" type="image/png">
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Connectez-vous</h2>
+        <form id="loginForm" action="/login" method="POST">
+            <div>
+                <label for="mail">Email:</label>
+                <input type="text" name="mail" id="mail" required>
+            </div>
+            <div>
+                <label for="login-password">Mot de passe:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="spacer"></div>
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <script>
+            document.getElementById('loginForm').onsubmit = function (event) {
+                event.preventDefault();
+
+                var formData = new FormData(this);
+
+                var object = {};
+                formData.forEach((value, key) => object[key] = value);
+                var json = JSON.stringify(object);
+
+                fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: json
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Réponse réseau non ok.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = '/';
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Une erreur est survenue lors de la connexion au serveur.');
+                    });
+            };
+        </script>
+
+        <div class="spacer"></div>
+        <h2>Créez un compte</h2>
+        <form action="/register" method="POST">
+            <button type="button" onclick="window.location='creation.html';">Créer un compte</button>
+        </form>
+    </div>
+</body>
+
+</html>
