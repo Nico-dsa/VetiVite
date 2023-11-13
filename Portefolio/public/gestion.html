@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Mon Profil | VétiVite</title>
     <link rel="icon" href="img/Vetivite.png" type="image/png">
-    <link rel="stylesheet" href="gestion.css">
+    <link rel="stylesheet" href="styles/gestion.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <script src="script.js"></script>
 </head>
+
 <body>
     <a href="index.html" class="retour-button">
         <i class="fa fa-arrow-left"></i> Retour
@@ -42,7 +44,7 @@
                     <button type="button" class="edit-button" onclick="editField('email')">Modifier</button>
                 </div>
             </div>
-            
+
             <div class="input-group">
                 <label for="address">Adresse:</label>
                 <div class="input-edit">
@@ -58,7 +60,7 @@
                     <button type="button" class="edit-button" onclick="editField('ville')">Modifier</button>
                 </div>
             </div>
-    
+
             <div class="input-group">
                 <label for="codePostal">Code Postal:</label>
                 <div class="input-edit">
@@ -66,7 +68,7 @@
                     <button type="button" class="edit-button" onclick="editField('codePostal')">Modifier</button>
                 </div>
             </div>
-    
+
             <div class="input-group">
                 <label for="pays">Pays:</label>
                 <div class="input-edit">
@@ -82,24 +84,24 @@
                     <button type="button" class="edit-button" onclick="editField('password')">Modifier</button>
                 </div>
             </div>
-    
+
             <button type="submit" class="update-button" id="updateProfile">Mettre à jour</button>
-            
+
             <h3>Préférences</h3>
             <label for="brands">Marques favorites:</label>
             <input type="text" id="brands">
-            
+
             <label for="sizes">Tailles:</label>
             <input type="text" id="sizes">
         </div>
-        
+
         <div class="profile-items">
             <h3>Objets à vendre</h3>
             <ul id="itemsForSale"></ul>
-            
+
             <h3>Objets vendus</h3>
             <ul id="itemsSold"></ul>
-            
+
             <h3>Objets achetés</h3>
             <ul id="itemsBought"></ul>
         </div>
@@ -107,4 +109,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

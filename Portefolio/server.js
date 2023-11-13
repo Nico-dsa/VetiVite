@@ -51,6 +51,8 @@ app.post('/process-registration', handleRegistration);
 app.get('/articles', handleGetArticles);
 app.get('/wishlist', handleGetWishlist);
 app.get('/cart', handleGetCart);
+app.get('/on-sale', handleOnSale);
+app.get('/sold', handleSold);
 app.get('/article-details/:id', handleDetail);
 app.post('/add-to-wishlist', handleAddToWishlist);
 app.post('/add-to-cart', handleAddToCart);
@@ -58,10 +60,10 @@ app.post('/remove-from-wishlist', handleRemoveFromWishlist);
 app.post('/remove-from-cart', handleRemoveFromCart);
 app.post('/api/user/profile', upload.single('image'), handleUserProfile);
 app.post('/ajouter-article', upload.single('product-image'), handleAddArticle),
-// Route pour la page de gestion de profil
-app.get('/gestion-profil', (req, res) => {
-  res.sendFile(__dirname + '/public/gestion.html');
-});
+  // Route pour la page de gestion de profil
+  app.get('/gestion-profil', (req, res) => {
+    res.sendFile(__dirname + '/public/gestion.html');
+  });
 // Route pour la page d'ajout d'un nouvel article
 app.get('/ajout-article', (req, res) => {
   res.sendFile(__dirname + '/public/newarticle.html');
@@ -82,8 +84,8 @@ function handleDetail(req, res) {
       return res.status(500).json({ error: 'Error fetching article details' });
     }
     const article = results[0];
-      article.date = new Date(article.date).toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
-      res.json(article);
+    article.date = new Date(article.date).toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
+    res.json(article);
   });
 }
 
@@ -140,6 +142,40 @@ function handleGetArticles(req, res) {
   db.query(query, (err, results) => {
     if (err) {
       return res.status(500).json({ error: 'Error fetching articles' });
+    }
+    res.json(results);
+  });
+}
+
+// Code pour la route des articles en vente
+function handleOnSale(req, res) {
+  if (!req.session.userId) {
+    return res.status(401).send('Unauthorized: No session available');
+  }
+  const query = `
+    SELECT * FROM articles 
+    WHERE id_user = ? 
+    AND status = "disponible"`;
+  db.query(query, [req.session.userId], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error fetching on sale' });
+    }
+    res.json(results);
+  });
+}
+
+// Code pour la route des articles vendus
+function handleSold(req, res) {
+  if (!req.session.userId) {
+    return res.status(401).send('Unauthorized: No session available');
+  }
+  const query = `
+    SELECT * FROM articles 
+    WHERE id_user = ? 
+    AND status = "vendu"`;
+  db.query(query, [req.session.userId], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error fetching sold' });
     }
     res.json(results);
   });
@@ -258,7 +294,7 @@ function handleAddArticle(req, res) {
     return res.status(400).send('No file was uploaded.');
   }
   const userId = req.session.userId;
-  const { name, brand, descr, size, cond, price, cat, color} = req.body;
+  const { name, brand, descr, size, cond, price, cat, color } = req.body;
   const status = 'disponible';
   const date = new Date(); // La date actuelle pour la mise en vente
   const img = req.file.filename;

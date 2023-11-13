@@ -49,6 +49,46 @@ function setupCardEvents() {
   heartIcon.onclick = swipeRight;
 }
 
+function activateAcheteur() {
+  // Masquer les boutons "On Sale" et "Sold"
+  $('.sellerBoutons').hide();
+  // Afficher les boutons "Wishlist" et "Panier"
+  $('.buyerBoutons').show();
+}
+
+function activateVendeur() {
+  // Masquer les boutons "Wishlist" et "Panier"
+  $('.buyerBoutons').hide();
+  // Afficher les boutons "On Sale" et "Sold"
+  $('.sellerBoutons').show();
+}
+
+function onAcheteurBtnClick() {
+  activateAcheteur();
+  onWishlistBtnClick(); // Afficher la Wishlist par défaut
+}
+
+function onVendeurBtnClick() {
+  activateVendeur();
+  onOnSaleBtnClick(); // Afficher les articles "En vente..." par défaut
+}
+
+function onOnSaleBtnClick() {
+  $('#onsaleContainer').show();
+  $('#soldContainer').hide();
+  fetchOnSale();
+  $('#onsaleBtn').addClass('active-btn');
+  $('#soldBtn').removeClass('active-btn');
+}
+
+function onSoldBtnClick() {
+  $('#soldContainer').show();
+  $('#onsaleContainer').hide();
+  fetchSold();
+  $('#soldBtn').addClass('active-btn');
+  $('#onsaleBtn').removeClass('active-btn');
+}
+
 // Gestionnaires d'événements pour les boutons Wishlist et Panier
 function onWishlistBtnClick() {
   $('#wishlistContainer').show();
@@ -76,6 +116,30 @@ function fetchArticles() {
       setupCardEvents();
     })
     .catch(error => console.error("Erreur lors de la récupération des articles:", error));
+}
+
+function fetchOnSale() {
+  console.log("Fetching on sale articles...");
+  fetch("/on-sale")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Data received for on sale articles:", data);
+      const onsaleContainer = $("#onsaleContainer").empty();
+      data.forEach(article => onsaleContainer.append(createArticleHtml(article)));
+    })
+    .catch(error => console.error("Error fetching on sale articles:", error));
+}
+
+function fetchSold() {
+  console.log("Fetching sold articles...");
+  fetch("/sold")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Data received for sold articles:", data);
+      const soldContainer = $("#soldContainer").empty();
+      data.forEach(article => soldContainer.append(createArticleHtml(article)));
+    })
+    .catch(error => console.error("Error fetching sold articles:", error));
 }
 
 function fetchWishlist() {
@@ -317,11 +381,14 @@ function swipeRight() {
 
 // Initialise l'application
 $(document).ready(() => {
+  activateAcheteur();
   fetchAndStoreWishlist();
   fetchArticles();
   fetchWishlist();
   $('#wishlistBtn').click(onWishlistBtnClick);
   $('#panierBtn').click(onPanierBtnClick);
+  $('#onsaleBtn').click(onOnSaleBtnClick);
+  $('#soldBtn').click(onSoldBtnClick);
 });
 
 // Gestionnaire de clic pour les articles de la wishlist
