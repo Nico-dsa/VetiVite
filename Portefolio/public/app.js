@@ -54,6 +54,7 @@ function activateAcheteur() {
   $('.sellerBoutons').hide();
   // Afficher les boutons "Wishlist" et "Panier"
   $('.buyerBoutons').show();
+  onWishlistBtnClick();
 }
 
 function activateVendeur() {
@@ -61,6 +62,7 @@ function activateVendeur() {
   $('.buyerBoutons').hide();
   // Afficher les boutons "On Sale" et "Sold"
   $('.sellerBoutons').show();
+  onOnSaleBtnClick();
 }
 
 function onAcheteurBtnClick() {
@@ -76,6 +78,8 @@ function onVendeurBtnClick() {
 function onOnSaleBtnClick() {
   $('#onsaleContainer').show();
   $('#soldContainer').hide();
+  $('#wishlistContainer').hide();
+  $('#cartContainer').hide();
   fetchOnSale();
   $('#onsaleBtn').addClass('active-btn');
   $('#soldBtn').removeClass('active-btn');
@@ -84,6 +88,8 @@ function onOnSaleBtnClick() {
 function onSoldBtnClick() {
   $('#soldContainer').show();
   $('#onsaleContainer').hide();
+  $('#wishlistContainer').hide();
+  $('#cartContainer').hide();
   fetchSold();
   $('#soldBtn').addClass('active-btn');
   $('#onsaleBtn').removeClass('active-btn');
@@ -93,6 +99,8 @@ function onSoldBtnClick() {
 function onWishlistBtnClick() {
   $('#wishlistContainer').show();
   $('#cartContainer').hide();
+  $('#soldContainer').hide();
+  $('#onsaleContainer').hide();
   fetchWishlist();
   $('#wishlistBtn').addClass('active-btn');
   $('#panierBtn').removeClass('active-btn');
@@ -101,6 +109,8 @@ function onWishlistBtnClick() {
 function onPanierBtnClick() {
   $('#cartContainer').show();
   $('#wishlistContainer').hide();
+  $('#soldContainer').hide();
+  $('#onsaleContainer').hide();
   fetchCart();
   $('#panierBtn').addClass('active-btn');
   $('#wishlistBtn').removeClass('active-btn');
