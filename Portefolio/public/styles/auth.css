@@ -88,3 +88,9 @@ input:focus {
     background-color: #fff; 
     color: var(--main-bg-color); 
 }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
