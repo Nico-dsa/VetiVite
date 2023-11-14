@@ -49,19 +49,41 @@ function setupCardEvents() {
   heartIcon.onclick = swipeRight;
 }
 
+function loadProfileForm() {
+  $('.nav-btn').hide();
+  $('#sideContainer').hide();
+  $('.profil-container').show();
+  $.ajax({
+    url: 'profil-formulaire.html',
+    method: 'GET',
+    success: function (data) {
+      // Insérez le contenu du formulaire dans la div de la sidebar
+      $('.profil-container').html(data);
+    },
+    error: function (error) {
+      console.error('Erreur lors du chargement du formulaire de profil:', error);
+    }
+  });
+}
+
+
 function activateAcheteur() {
-  // Masquer les boutons "On Sale" et "Sold"
+  $('.profil-container').hide();
+  $('.nav-btn').show();
   $('.sellerBoutons').hide();
-  // Afficher les boutons "Wishlist" et "Panier"
   $('.buyerBoutons').show();
+  $('#sideContainer').show();
+
   onWishlistBtnClick();
 }
 
 function activateVendeur() {
-  // Masquer les boutons "Wishlist" et "Panier"
+  $('.profil-container').hide();
+  $('.nav-btn').show();
   $('.buyerBoutons').hide();
-  // Afficher les boutons "On Sale" et "Sold"
   $('.sellerBoutons').show();
+  $('#sideContainer').show();
+
   onOnSaleBtnClick();
 }
 
