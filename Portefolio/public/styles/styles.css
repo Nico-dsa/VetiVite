@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: cursive;
-    background-color: #303030;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,9 +10,10 @@ body {
 
 /* Sidebar Styles */
 #sidebar {
+    font-family: 'Roboto', sans-serif;
     width: 30%;
     height: 100vh;
-    background-color: #000000;
+    background-color: #111111;
     color: #fff;
     padding: 20px;
     position: fixed;
@@ -75,6 +76,7 @@ body {
 
 /* Card Styles */
 #card {
+    font-family: 'Roboto', sans-serif;
     width: 400px;
     height: 600px;
     margin: 0 auto;
@@ -96,29 +98,40 @@ body {
 /* Icon Styles */
 .icons {
     display: flex;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.icons i {
-    padding: 10px;
-    font-size: 50px;
+    justify-content: center;
+  }
+  
+  .icon {
+    font-size: 40px; 
+    width: 70px; 
+    height: 70px; 
+    line-height: 70px; 
+    text-align: center; 
+    border-radius: 50%; 
     cursor: pointer;
-    margin-left: 20px;
-}
-
-.icon.fas.fa-times {
-    margin-left: 25%;
-}
-
-.icon.fas.fa-heart {
-    margin-left: 20%;
-}
+    margin: 0 20px; 
+    transition: background-color 0.3s, transform 0.3s; 
+  }
+  
+  .icon.fas.fa-times {
+    color: #ff6b6b; 
+    background-color: #ffe6e6; 
+  }
+  
+  .icon.fas.fa-heart {
+    color: #2ecc71; 
+    background-color: #ecf8f2; 
+  }
+  
+  .icon:hover {
+    background-color: #dcdde1; 
+    transform: scale(1.1); 
+  }
 
 /* White Bar Styles */
 .white-bar {
     width: 100%;
-    background-color: #d9cbaf;
+    background: linear-gradient(135deg, #e6e6e6 0%, #f0f0f0 50%, #e6e6e6 100%);
     padding: 10px;
     position: absolute;
     bottom: 0;
@@ -170,11 +183,12 @@ body {
 
 /* Modal content */
 .modal-content {
+    font-family: 'Roboto', sans-serif;
     margin-left: 20%;
     min-height: 80vh;
     width: auto;
     display: flex;
-    background-color: #d9cbaf;
+    background: linear-gradient(135deg, #e6e6e6 0%, #f0f0f0 50%, #e6e6e6 100%);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -261,12 +275,15 @@ margin-bottom: 10px;
 .en-tete-profil {
     display: flex;
     align-items: center;
+    padding: 10px;
+    display: flex; 
+    gap: 10px; 
 }
 
 .logo {
     width: 50px;
     height: auto;
-    margin-left: 45%;
+    margin-left: 5%;
 }
 
 .en-tete-profil h3 {
@@ -280,5 +297,30 @@ margin-bottom: 10px;
   
   .en-tete-profil a {
     text-decoration: none; 
-    color: #ffffff;
+    color: #fff;
+  }
+
+  .custom-btn {
+    padding: 10px 20px;
+    border: 2px solid #ddd; 
+    background-color: #fff; 
+    color: #333; 
+    text-transform: uppercase; 
+    font-size: 14px;
+    border-radius: 4px; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .custom-btn:hover {
+    background-color: #f8f9fa; 
+    color: #1ba80e; 
+  }
+
+  hr {
+    border: none;
+    height: 5px; 
+    background-color: #270b5d; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
   }
