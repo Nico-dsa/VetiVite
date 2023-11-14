@@ -1,3 +1,4 @@
+let userData;
 let currentIndex = 0;
 let articles = [];
 let wishlistItems = [];
@@ -49,23 +50,51 @@ function setupCardEvents() {
   heartIcon.onclick = swipeRight;
 }
 
+
 function loadProfileForm() {
   $('.nav-btn').hide();
   $('#sideContainer').hide();
   $('.profil-container').show();
-  $.ajax({
-    url: 'profil-formulaire.html',
-    method: 'GET',
-    success: function (data) {
-      // Insérez le contenu du formulaire dans la div de la sidebar
-      $('.profil-container').html(data);
-    },
-    error: function (error) {
-      console.error('Erreur lors du chargement du formulaire de profil:', error);
-    }
-  });
-}
 
+  fetchUserData()
+    .then(userData => {
+
+      $('#lastName').val(userData.name);
+      $('#firstName').val(userData.first_name);
+      $('#email').val(userData.mail);
+      $('#age').val(userData.age);
+      $('#sexe').val(userData.sexe);
+      $('#address').val(userData.address);
+      $('#ville').val(userData.city);
+      $('#codePostal').val(userData.zip);
+      $('#pays').val(userData.country);
+
+      $.ajax({
+        url: 'profil-formulaire.html',
+        method: 'GET',
+        success: function (data) {
+
+          $('.profil-container').html(data);
+
+          $('.profil-container #lastName').val(userData.name);
+          $('.profil-container #firstName').val(userData.first_name);
+          $('.profil-container #email').val(userData.mail);
+          $('.profil-container #age').val(userData.age);
+          $('.profil-container #sexe').val(userData.sexe);
+          $('.profil-container #address').val(userData.address);
+          $('.profil-container #ville').val(userData.city);
+          $('.profil-container #codePostal').val(userData.zip);
+          $('.profil-container #pays').val(userData.country);
+        },
+        error: function (error) {
+          console.error('Erreur lors du chargement du formulaire de profil:', error);
+        }
+      });
+    })
+    .catch(error => {
+      console.error('Erreur lors du chargement des données utilisateur:', error);
+    });
+}
 
 function activateAcheteur() {
   $('.profil-container').hide();
@@ -136,6 +165,23 @@ function onPanierBtnClick() {
   fetchCart();
   $('#panierBtn').addClass('active-btn');
   $('#wishlistBtn').removeClass('active-btn');
+}
+
+// Fonction pour récupérer les données utilisateur
+function fetchUserData() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: '/user-data',
+      method: 'GET',
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (error) {
+        console.error('Erreur lors de la récupération des données utilisateur:', error);
+        reject(error);
+      }
+    });
+  });
 }
 
 // Récupération des données des articles, wishlist et panier
@@ -415,6 +461,7 @@ function swipeRight() {
 $(document).ready(() => {
   activateAcheteur();
   fetchAndStoreWishlist();
+  fetchUserData();
   fetchArticles();
   fetchWishlist();
   $('#wishlistBtn').click(onWishlistBtnClick);
