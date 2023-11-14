@@ -48,6 +48,7 @@ db.connect(err => {
 // Routes
 app.post('/login', handleLogin);
 app.post('/process-registration', handleRegistration);
+app.get('/user-data', handleUser);
 app.get('/articles', handleGetArticles);
 app.get('/wishlist', handleGetWishlist);
 app.get('/cart', handleGetCart);
@@ -58,16 +59,11 @@ app.post('/add-to-wishlist', handleAddToWishlist);
 app.post('/add-to-cart', handleAddToCart);
 app.post('/remove-from-wishlist', handleRemoveFromWishlist);
 app.post('/remove-from-cart', handleRemoveFromCart);
-app.post('/api/user/profile', upload.single('image'), handleUserProfile);
 app.post('/ajouter-article', upload.single('product-image'), handleAddArticle),
-  // Route pour la page de gestion de profil
-  app.get('/gestion-profil', (req, res) => {
-    res.sendFile(__dirname + '/public/gestion.html');
+  // Route pour la page d'ajout d'un nouvel article
+  app.get('/ajout-article', (req, res) => {
+    res.sendFile(__dirname + '/public/newarticle.html');
   });
-// Route pour la page d'ajout d'un nouvel article
-app.get('/ajout-article', (req, res) => {
-  res.sendFile(__dirname + '/public/newarticle.html');
-});
 
 
 // Démarrage du serveur
@@ -133,6 +129,26 @@ function handleRegistration(req, res) {
       req.session.userId = results.insertId;
       res.redirect('/');
     });
+  });
+}
+
+// Code pour récupérer les articles
+function handleUser(req, res) {
+  if (!req.session.userId) {
+    return res.status(401).json({ error: 'User not logged in' });
+  }
+
+  const userId = req.session.userId;
+  const query = 'SELECT * FROM user WHERE id = ?';
+
+  db.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error('Error fetching user profile:', err);
+      return res.status(500).json({ error: 'Error fetching user profile' });
+    }
+
+    const userData = results[0];
+    res.json(userData);
   });
 }
 

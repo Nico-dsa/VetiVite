@@ -1,46 +1,46 @@
 :root {
     --main-bg-color: #303030;
-    --button-hover-color: #333333; 
+    --button-hover-color: #333333;
     --focus-border-color: #000000;
     --input-bg-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
-    font-family: 'Roboto', sans-serif; 
-    background-color: var(--main-bg-color); 
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--main-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0; 
+    margin: 0;
     background-image: url('../img/Test3.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 form {
     background: linear-gradient(135deg, #e6e6e6 0%, #f0f0f0 50%, #e6e6e6 100%);
-    padding: 30px; 
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
-    width: 300px; 
+    padding: 30px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    width: 300px;
     border-radius: 12px;
     margin-left: auto;
     margin-right: auto;
     background-image: url('../img/Vetivite.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .form-group {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #000000; 
+    color: #000000;
     font-weight: bold;
 }
 
@@ -52,11 +52,11 @@ label {
 .form-group select {
     width: calc(100% - 20px);
     margin: 0 auto;
-    padding: 10px; 
-    border-radius: 4px; 
-    border: 1px solid #000000; 
-    background: var(--input-bg-color); 
-    transition: border-color 0.3s ease, background-color 0.3s ease; 
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    background: var(--input-bg-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .form-group input[type="text"]:focus,
@@ -67,25 +67,25 @@ label {
 .form-group select:focus {
     outline: none;
     border-color: var(--focus-border-color);
-    background-color: #fff; 
-    color: var(--main-bg-color); 
+    background-color: #fff;
+    color: var(--main-bg-color);
 }
 
 input[type="submit"] {
     display: block;
     width: calc(100% - 20px);
-    padding: 12px; 
-    background-color: #000000; 
-    color: white; 
+    padding: 12px;
+    background-color: #000000;
+    color: white;
     border: none;
-    border-radius: 6px; 
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 10px auto;
 }
 
 input[type="submit"]:hover {
-    background-color: var(--button-hover-color); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-    transform: translateY(-2px); 
+    background-color: var(--button-hover-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }

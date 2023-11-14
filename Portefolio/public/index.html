@@ -16,7 +16,7 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <div class="en-tete-profil">
-            <h3><a href="/gestion-profil">Profil</a></h3>
+            <button id="profilBtn" onclick="loadProfileForm()">Profil</button>
             <button id="acheteurBtn" onclick="activateAcheteur()">Acheteur</button>
             <button id="vendeurBtn" onclick="activateVendeur()">Vendeur</button>
 
@@ -25,15 +25,18 @@
         </div>
         <hr>
         <div class="side">
+            <div class="profil-container"></div>
             <div class="boutons">
                 <!-- Boutons de navigation -->
-                <div class="buyerBoutons">
-                    <a href="#" id="wishlistBtn" class="active-btn">Wishlist</a>
-                    <a href="#" id="panierBtn">Panier</a>
-                </div>
-                <div class="sellerBoutons">
-                    <a href="#" id="onsaleBtn" class="active-btn">En vente...</a>
-                    <a href="#" id="soldBtn">Vendus</a>
+                <div class="boutons">
+                    <div class="buyerBoutons">
+                        <a href="#" id="wishlistBtn" class="nav-btn active-btn">Wishlist</a>
+                        <a href="#" id="panierBtn" class="nav-btn">Panier</a>
+                    </div>
+                    <div class="sellerBoutons">
+                        <a href="#" id="onsaleBtn" class="nav-btn active-btn">En vente...</a>
+                        <a href="#" id="soldBtn" class="nav-btn">Vendus</a>
+                    </div>
                 </div>
             </div>
             <div id="sideContainer">

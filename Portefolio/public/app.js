@@ -1,3 +1,4 @@
+let userData;
 let currentIndex = 0;
 let articles = [];
 let wishlistItems = [];
@@ -49,18 +50,70 @@ function setupCardEvents() {
   heartIcon.onclick = swipeRight;
 }
 
+
+function loadProfileForm() {
+  $('.nav-btn').hide();
+  $('#sideContainer').hide();
+  $('.profil-container').show();
+
+  fetchUserData()
+    .then(userData => {
+
+      $('#lastName').val(userData.name);
+      $('#firstName').val(userData.first_name);
+      $('#email').val(userData.mail);
+      $('#age').val(userData.age);
+      $('#sexe').val(userData.sexe);
+      $('#address').val(userData.address);
+      $('#ville').val(userData.city);
+      $('#codePostal').val(userData.zip);
+      $('#pays').val(userData.country);
+
+      $.ajax({
+        url: 'profil-formulaire.html',
+        method: 'GET',
+        success: function (data) {
+
+          $('.profil-container').html(data);
+
+          $('.profil-container #lastName').val(userData.name);
+          $('.profil-container #firstName').val(userData.first_name);
+          $('.profil-container #email').val(userData.mail);
+          $('.profil-container #age').val(userData.age);
+          $('.profil-container #sexe').val(userData.sexe);
+          $('.profil-container #address').val(userData.address);
+          $('.profil-container #ville').val(userData.city);
+          $('.profil-container #codePostal').val(userData.zip);
+          $('.profil-container #pays').val(userData.country);
+        },
+        error: function (error) {
+          console.error('Erreur lors du chargement du formulaire de profil:', error);
+        }
+      });
+    })
+    .catch(error => {
+      console.error('Erreur lors du chargement des données utilisateur:', error);
+    });
+}
+
 function activateAcheteur() {
-  // Masquer les boutons "On Sale" et "Sold"
+  $('.profil-container').hide();
+  $('.nav-btn').show();
   $('.sellerBoutons').hide();
-  // Afficher les boutons "Wishlist" et "Panier"
   $('.buyerBoutons').show();
+  $('#sideContainer').show();
+
+  onWishlistBtnClick();
 }
 
 function activateVendeur() {
-  // Masquer les boutons "Wishlist" et "Panier"
+  $('.profil-container').hide();
+  $('.nav-btn').show();
   $('.buyerBoutons').hide();
-  // Afficher les boutons "On Sale" et "Sold"
   $('.sellerBoutons').show();
+  $('#sideContainer').show();
+
+  onOnSaleBtnClick();
 }
 
 function onAcheteurBtnClick() {
@@ -76,6 +129,8 @@ function onVendeurBtnClick() {
 function onOnSaleBtnClick() {
   $('#onsaleContainer').show();
   $('#soldContainer').hide();
+  $('#wishlistContainer').hide();
+  $('#cartContainer').hide();
   fetchOnSale();
   $('#onsaleBtn').addClass('active-btn');
   $('#soldBtn').removeClass('active-btn');
@@ -84,6 +139,8 @@ function onOnSaleBtnClick() {
 function onSoldBtnClick() {
   $('#soldContainer').show();
   $('#onsaleContainer').hide();
+  $('#wishlistContainer').hide();
+  $('#cartContainer').hide();
   fetchSold();
   $('#soldBtn').addClass('active-btn');
   $('#onsaleBtn').removeClass('active-btn');
@@ -93,6 +150,8 @@ function onSoldBtnClick() {
 function onWishlistBtnClick() {
   $('#wishlistContainer').show();
   $('#cartContainer').hide();
+  $('#soldContainer').hide();
+  $('#onsaleContainer').hide();
   fetchWishlist();
   $('#wishlistBtn').addClass('active-btn');
   $('#panierBtn').removeClass('active-btn');
@@ -101,9 +160,28 @@ function onWishlistBtnClick() {
 function onPanierBtnClick() {
   $('#cartContainer').show();
   $('#wishlistContainer').hide();
+  $('#soldContainer').hide();
+  $('#onsaleContainer').hide();
   fetchCart();
   $('#panierBtn').addClass('active-btn');
   $('#wishlistBtn').removeClass('active-btn');
+}
+
+// Fonction pour récupérer les données utilisateur
+function fetchUserData() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: '/user-data',
+      method: 'GET',
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (error) {
+        console.error('Erreur lors de la récupération des données utilisateur:', error);
+        reject(error);
+      }
+    });
+  });
 }
 
 // Récupération des données des articles, wishlist et panier
@@ -383,6 +461,7 @@ function swipeRight() {
 $(document).ready(() => {
   activateAcheteur();
   fetchAndStoreWishlist();
+  fetchUserData();
   fetchArticles();
   fetchWishlist();
   $('#wishlistBtn').click(onWishlistBtnClick);
