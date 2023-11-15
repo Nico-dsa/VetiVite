@@ -59,10 +59,7 @@ app.post('/add-to-wishlist', handleAddToWishlist);
 app.post('/add-to-cart', handleAddToCart);
 app.post('/remove-from-wishlist', handleRemoveFromWishlist);
 app.post('/remove-from-cart', handleRemoveFromCart);
-app.post('/add-article', upload.single('product-image'), handleAddArticle),
-  app.get('/ajout-article', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-  });
+app.post('/add-article', upload.single('product-image'), handleAddArticle);
 
 
 // Démarrage du serveur

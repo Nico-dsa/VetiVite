@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const submitButton = document.querySelector('.submit-button');
+  const submitButton = document.querySelector('#addArticleButton');
   if (submitButton) {
     submitButton.addEventListener('click', function (event) {
       event.preventDefault(); // Empêche l'envoi classique du formulaire

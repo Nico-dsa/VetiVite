@@ -1,9 +1,30 @@
+#sellArticleModal {
+  display: flex;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 .product-container {
   background-color: white;
   padding: 20px;
-  border-radius: 10%;
   border: 2px solid gray;
-  margin-left: 30%;
+}
+
+.closeSellArticleModal {
+  position: absolute;
+  color: #000000;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+  top: 20px;
+  right: 20px;
+}
+
+.closeSellArticleModal:hover,
+.closeSellArticleModal:focus {
+  color: rgb(169, 62, 62);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 label {

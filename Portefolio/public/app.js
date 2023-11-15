@@ -273,23 +273,23 @@ function updateFooterButtonLabel(mode) {
       break;
     case 'vendeur':
       footerButton.text('Vendre un article');
-      footerButton.off('click').on('click', onFooterButtonVendeurClick);
+      footerButton.off('click').on('click', openSellArticleModal);
       break;
     default:
       footerButton.text('Action par défaut');
   }
 }
 
-function onFooterButtonAcheteurClick() {
-  onPanierBtnClick();
+function openSellArticleModal() {
+  $('#sellArticleModal').show();
 }
 
-function onFooterButtonVendeurClick() {
-  $('#main').load('newarticle.html', function (response, status, xhr) {
-    if (status === "error") {
-      console.error("Erreur lors du chargement du formulaire de vente:", xhr.statusText);
-    }
-  });
+function closeSellArticleModal() {
+  $('#sellArticleModal').hide();
+}
+
+function onFooterButtonAcheteurClick() {
+  onPanierBtnClick();
 }
 
 function showArticleDetails(article) {
@@ -511,3 +511,4 @@ $(document).on('click', '.article', function () {
 
 // Gestionnaire de clic pour fermer le modal
 $(document).on('click', '.close', closeModal);
+$(document).on('click', '.closeSellArticleModal', closeSellArticleModal);
