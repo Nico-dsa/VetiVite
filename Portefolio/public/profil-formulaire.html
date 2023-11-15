@@ -2,80 +2,61 @@
     <div class="input-group">
         <label for="firstName">Prénom:</label>
         <div class="input-edit">
-            <input type="text" id="firstName" disabled>
-            <button type="button" class="edit-button" onclick="editField('firstName')">Modifier</button>
+            <input type="text" id="firstName" oninput="updateField('firstName')">
         </div>
     </div>
 
     <div class="input-group">
         <label for="lastName">Nom:</label>
         <div class="input-edit">
-            <input type="text" id="lastName" disabled>
-            <button type="button" class="edit-button" onclick="editField('lastName')">Modifier</button>
+            <input type="text" id="lastName" oninput="updateField('lastName')">
         </div>
     </div>
 
     <div class="input-group">
         <label for="email">Email:</label>
         <div class="input-edit">
-            <input type="email" id="email" disabled>
-            <button type="button" class="edit-button" onclick="editField('email')">Modifier</button>
+            <input type="text" id="email" oninput="updateField('email')">
         </div>
     </div>
     <div class="input-group">
         <label for="age">Age:</label>
         <div class="input-edit">
-            <input type="age" id="age" disabled>
-            <button type="button" class="edit-button" onclick="editField('age')">Modifier</button>
+            <input type="text" id="age" oninput="updateField('age')">
         </div>
     </div>
     <div class="input-group">
         <label for="sexe">Sexe:</label>
         <div class="input-edit">
-            <input type="sexe" id="sexe" disabled>
-            <button type="button" class="edit-button" onclick="editField('sexe')">Modifier</button>
+            <input type="text" id="sexe" oninput="updateField('sexe')">
         </div>
     </div>
 
     <div class="input-group">
         <label for="address">Adresse:</label>
         <div class="input-edit">
-            <input type="text" id="address" disabled>
-            <button type="button" class="edit-button" onclick="editField('adress')">Modifier</button>
+            <input type="text" id="adress" oninput="updateField('adress')">
         </div>
     </div>
 
     <div class="input-group">
         <label for="ville">Ville:</label>
         <div class="input-edit">
-            <input type="text" id="ville" name="ville" disabled>
-            <button type="button" class="edit-button" onclick="editField('ville')">Modifier</button>
+            <input type="text" id="ville" oninput="updateField('ville')">
         </div>
     </div>
 
     <div class="input-group">
         <label for="codePostal">Code Postal:</label>
         <div class="input-edit">
-            <input type="text" id="codePostal" name="codePostal" disabled>
-            <button type="button" class="edit-button" onclick="editField('codePostal')">Modifier</button>
+            <input type="text" id="codePostal" oninput="updateField('codePostal')">
         </div>
     </div>
 
     <div class="input-group">
         <label for="pays">Pays:</label>
         <div class="input-edit">
-            <input type="text" id="pays" name="pays" disabled>
-            <button type="button" class="edit-button" onclick="editField('pays')">Modifier</button>
+            <input type="text" id="pays" oninput="updateField('pays')">
         </div>
     </div>
-
-    <div class="input-group">
-        <label for="password">Mot de passe:</label>
-        <div class="input-edit">
-            <input type="text" id="" disabled>
-            <button type="button" class="edit-button" onclick="editField('password')">Modifier</button>
-        </div>
-    </div>
-
-    <button type="submit" class="update-button" id="updateProfile">Mettre à jour</button>
 </div>
