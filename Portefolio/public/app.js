@@ -55,6 +55,7 @@ function loadProfileForm() {
   $('.nav-btn').hide();
   $('#sideContainer').hide();
   $('.profil-container').show();
+  updateFooterButtonLabel('profil');
 
   fetchUserData()
     .then(userData => {
@@ -102,7 +103,7 @@ function activateAcheteur() {
   $('.sellerBoutons').hide();
   $('.buyerBoutons').show();
   $('#sideContainer').show();
-
+  updateFooterButtonLabel('acheteur');
   onWishlistBtnClick();
 }
 
@@ -112,7 +113,7 @@ function activateVendeur() {
   $('.buyerBoutons').hide();
   $('.sellerBoutons').show();
   $('#sideContainer').show();
-
+  updateFooterButtonLabel('vendeur');
   onOnSaleBtnClick();
 }
 
@@ -257,6 +258,38 @@ function fetchArticleDetails(articleId) {
       showArticleDetails(article);
     })
     .catch(error => console.error('Error fetching article details:', error));
+}
+
+function updateFooterButtonLabel(mode) {
+  const footerButton = $('#footerButton');
+
+  switch (mode) {
+    case 'profil':
+      footerButton.text('Mettre à jour');
+      break;
+    case 'acheteur':
+      footerButton.text('Accéder au panier');
+      footerButton.off('click').on('click', onFooterButtonAcheteurClick);
+      break;
+    case 'vendeur':
+      footerButton.text('Vendre un article');
+      footerButton.off('click').on('click', onFooterButtonVendeurClick);
+      break;
+    default:
+      footerButton.text('Action par défaut');
+  }
+}
+
+function onFooterButtonAcheteurClick() {
+  onPanierBtnClick();
+}
+
+function onFooterButtonVendeurClick() {
+  $('#main').load('newarticle.html', function (response, status, xhr) {
+    if (status === "error") {
+      console.error("Erreur lors du chargement du formulaire de vente:", xhr.statusText);
+    }
+  });
 }
 
 function showArticleDetails(article) {
