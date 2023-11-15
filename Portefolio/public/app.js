@@ -260,12 +260,47 @@ function fetchArticleDetails(articleId) {
     .catch(error => console.error('Error fetching article details:', error));
 }
 
+function updateProfileButtonClick() {
+  console.log('Update profile button clicked.');
+
+  const form = $('#profileForm');
+  console.log('Form:', form);
+
+  const formData = {
+    nom: $('#lastName').val(),
+    prenom: $('#firstName').val(),
+    email: $('#email').val(),
+    age: $('#age').val(),
+    sexe: $('#sexe').val(),
+    address: $('#address').val(),
+    ville: $('#ville').val(),
+    codePostal: $('#codePostal').val(),
+    pays: $('#pays').val(),
+  };
+  console.log('FormData:', formData);
+
+  // Envoie des données au serveur
+  $.ajax({
+    url: '/update-profile',
+    method: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(formData),
+    success: function (response) {
+      console.log(response); // Handle success
+    },
+    error: function (error) {
+      console.error('Error updating profile:', error);
+    }
+  });
+}
+
 function updateFooterButtonLabel(mode) {
   const footerButton = $('#footerButton');
 
   switch (mode) {
     case 'profil':
       footerButton.text('Mettre à jour');
+      footerButton.off('click').on('click', updateProfileButtonClick);
       break;
     case 'acheteur':
       footerButton.text('Accéder au panier');
