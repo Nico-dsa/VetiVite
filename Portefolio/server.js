@@ -59,10 +59,9 @@ app.post('/add-to-wishlist', handleAddToWishlist);
 app.post('/add-to-cart', handleAddToCart);
 app.post('/remove-from-wishlist', handleRemoveFromWishlist);
 app.post('/remove-from-cart', handleRemoveFromCart);
-app.post('/ajouter-article', upload.single('product-image'), handleAddArticle),
-  // Route pour la page d'ajout d'un nouvel article
+app.post('/add-article', upload.single('product-image'), handleAddArticle),
   app.get('/ajout-article', (req, res) => {
-    res.sendFile(__dirname + '/public/newarticle.html');
+    res.sendFile(__dirname + '/public/index.html');
   });
 
 
@@ -325,12 +324,4 @@ function handleAddArticle(req, res) {
     }
     res.json({ success: true, message: "Article ajouté avec succès", articleId: results.insertId });
   });
-}
-
-// Code pour le profil utilisateur
-function handleUserProfile(req, res) {
-  // The user's image file is available in req.file
-  // Other form fields are available in req.body
-  // Implement your logic here
-  res.send('Profile updated');
 }
