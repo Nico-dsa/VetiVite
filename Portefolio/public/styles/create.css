@@ -89,3 +89,27 @@ input[type="submit"]:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; 
+    }
+
+    form {
+        width: 100%; 
+        padding: 20px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="email"],
+    .form-group input[type="password"],
+    .form-group textarea,
+    .form-group select {
+        width: calc(100% - 10px);
+    }
+
+    input[type="submit"] {
+        width: calc(100% - 10px);
+    }
+}
