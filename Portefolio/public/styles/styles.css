@@ -11,7 +11,7 @@ body {
 /* Sidebar Styles */
 #sidebar {
     font-family: 'Roboto', sans-serif;
-    width: 30%;
+    width: 25%;
     height: 100vh;
     background-color: #111111;
     color: #fff;
@@ -192,6 +192,7 @@ body {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
+    overflow-y: auto;
 }
 
 .modal-content img {
@@ -232,8 +233,7 @@ body {
 
 .txt-detail #detailList ul {
     list-style: none;
-    width: 200px;
-    border-right: 1px solid #888;
+    width: 150px;
 }
 
 .txt-detail #detailList ul li {
@@ -277,7 +277,7 @@ body {
 .en-tete-profil {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     gap: 10px;
 }
@@ -313,7 +313,7 @@ hr {
 #side-footer {
     position: fixed;
     bottom: 0;
-    width: 30%;
+    width: 25%;
     background-color: #111111;
 }
 
@@ -324,17 +324,17 @@ hr {
 
 /* CSS */
 .button-74 {
-    background-color: #fbeee0;
+    background-color: linear-gradient(135deg, #e6e6e6 0%, #f0f0f0 50%, #e6e6e6 100%);
     border: 2px solid #270b5d;
     border-radius: 30px;
     box-shadow: #270b5d 4px 4px 0 0;
     color: #270b5d;
     cursor: pointer;
     display: inline-block;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 0 18px;
-    line-height: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 12px;
+    line-height: 40px;
     text-align: center;
     text-decoration: none;
     user-select: none;
@@ -347,14 +347,14 @@ hr {
 }
 
 .button-74:active {
-    box-shadow: #270b5d 2px 2px 0 0;
+    box-shadow: #fff 2px 2px 0 0;
     transform: translate(2px, 2px);
 }
 
 @media (min-width: 768px) {
     .button-74 {
-        min-width: 120px;
-        padding: 0 25px;
+        min-width: 80px;
+        padding: 0 12px;
     }
 }
 
