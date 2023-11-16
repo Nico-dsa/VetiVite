@@ -168,11 +168,11 @@ body {
 }
 
 /* Style pour le modal */
-.modal {
+.detail-modal {
     border-radius: 3%;
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 90;
     left: 30%;
     top: 10%;
     overflow: auto;
@@ -182,7 +182,7 @@ body {
 }
 
 /* Modal content */
-.modal-content {
+.detail-modal-content {
     font-family: 'Roboto', sans-serif;
     margin-left: 20%;
     min-height: 80vh;
@@ -195,7 +195,7 @@ body {
     overflow-y: auto;
 }
 
-.modal-content img {
+.detail-modal-content img {
     border-radius: 5%;
     width: 400px;
     height: auto;

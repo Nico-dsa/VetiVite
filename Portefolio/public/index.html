@@ -79,8 +79,8 @@
         </div>
 
         <!-- Modal pour afficher les détails de l'article -->
-        <div id="articleDetailsModal" class="modal">
-            <div class="modal-content">
+        <div id="articleDetailsModal" class="detail-modal">
+            <div class="detail-modal-content">
                 <span class="close">&times;</span>
                 <img id="detailImage" src="" alt="Image de l'article">
                 <div class="txt-detail">
@@ -113,11 +113,12 @@
 
     </div>
     <!-- Modal pour afficher les détails de l'article -->
-    <div id="sellArticleModal" class="modal">
-        <div class="modal-content">
+    <div id="sellArticleModal" class="article-modal">
+        <div class="artcile-modal-content">
             <span class="closeSellArticleModal">&times;</span>
             <div class="product-container">
                 <h2>Mettre en vente un produit</h2>
+                <br>
                 <form id="addArticleForm" enctype="multipart/form-data">
                     <label for="product-image">Photo de l'article:</label>
                     <input type="file" id="product-image" name="image" accept="image/*">
